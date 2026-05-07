@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudheer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Meta Pixel Code -->
+
+    <!-- End Meta Pixel Code -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: #8A244B;
+            overflow-x: hidden;
+            color: white;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            box-sizing: border-box;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        /* floating particles */
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: .6;
+            animation: move 10s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0)
+            }
+
+            100% {
+                transform: translateY(-1000px)
+            }
+        }
+
+        /* ensure card sits above grid */
+
+        body > div {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* card */
+
+        .card {
+            width: 360px;
+            max-width: 95vw;
+            padding: 45px 30px;
+            border-radius: 25px;
+            background: rgba(255, 20, 100, 0.12);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            box-shadow: 0 0 60px #8A244B55;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+            .card {
+                width: 100%;
+                max-width: 98vw;
+                padding: 28px 8px;
+                border-radius: 18px;
+            }
+            .profile-wrap {
+                width: 90px;
+                height: 90px;
+            }
+            .profile {
+                width: 80px;
+                height: 80px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            .btn {
+                padding: 14px 18px;
+                font-size: 16px;
+            }
+            .text {
+                font-size: 12px;
+            }
+        }
+
+        /* profile */
+
+        .profile-wrap {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-spinner {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
+            background: conic-gradient(#8A244B 0deg, #e8527a 120deg, #fff 240deg, #c43b6899 360deg);
+            filter: blur(1.5px);
+            animation: spinBorder 2.2s linear infinite;
+        }
+        .profile {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #c43b68;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            /* Remove animatedShadow from profile */
+        }
+        @keyframes spinBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes animatedShadow {
+            0% {
+                box-shadow: 0 0 10px 2px #4a9eff99, 0 0 16px 4px #7b2fff99;
+            }
+            50% {
+                box-shadow: 0 0 16px 4px #7b2fffcc, 0 0 20px 6px #4a9effcc;
+            }
+            100% {
+                box-shadow: 0 0 10px 2px #4a9eff99, 0 0 16px 4px #7b2fff99;
+            }
+        }
+
+        /* heading */
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        /* text */
+
+        .text {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: .9;
+            margin-bottom: 10px;
+        }
+
+        /* CTA button */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 40px;
+            border-radius: 60px;
+            background: linear-gradient(45deg, #bbbbbb, #ef4673);
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+            animation: pulse 1.6s ease-in-out infinite;
+            box-shadow: 0 0 10px 2px #8A244B88;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 10px 2px #8A244B88; }
+            20% { transform: scale(1.08); box-shadow: 0 0 18px 6px #c43b68cc; }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.05); box-shadow: 0 0 14px 4px #e8527aaa; }
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* circular timer */
+
+        .timer {
+            margin-top: 25px;
+            font-size: 14px;
+            opacity: .9;
+        }
+
+        /* disclaimer */
+
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 11px;
+            opacity: .6;
+            text-align: center;
+        }
+
+        .ads {
+            margin-top: 6px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .ads a {
+            color: #00f5ff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+
+        /* create particles */
+
+        for (let i = 0; i < 70; i++) {
+
+            let p = document.createElement("div");
+
+            p.className = "particle";
+
+            p.style.left = Math.random() * 100 + "%";
+
+            p.style.top = Math.random() * 100 + "%";
+
+            p.style.animationDuration = 5 + Math.random() * 10 + "s";
+
+            document.body.appendChild(p);
+
+        }
+
+    </script>
+
+    <div>
+
+        <div class="card">
+
+            <div class="profile-wrap">
+                <span class="profile-spinner"></span>
+                <img src="sudheer-profile.jpg" class="profile">
+            </div>
+
+            <h2 style="padding-bottom: 5px;">👑 SUDHEER 👑</h2>
+
+            <div class="text">
+                <p style="padding-bottom: 10px;">Expert tips & daily predictions — premium analysis, insider picks & live alerts straight to your Telegram.</p>
+                <p style="padding-bottom: 10px;">
+                Sports Analyst | 12 Years Expertise <br>
+                ‼🏏 Accurate Cricket Tips ✅‼ <br>
+                🎯 IPL 2025 – 74/70 PASS🔥 <br>
+                </p>
+            </div>
+
+            <a class="btn" href="https://t.me/+9A4iu1gQlKRhZjFl" target="_blank">
+
+                <i class="fab fa-telegram"></i>
+
+                Join Now Free
+
+                <i class="fab fa-telegram"></i>
+
+            </a>
+
+            <hr style="margin-top: 25px; border: none; border-top: 1px solid rgba(255,255,255,0.25);">
+
+            <p style="margin-top: 15px; font-size: 11px; opacity: 0.65; line-height: 1.6; text-align: center;">
+                <strong>Disclaimer:</strong>
+                This channel shares cricket updates, analysis, and general information for fans. It does not promote betting or gambling. No outcomes are guaranteed. Please verify independently and act responsibly.
+            </p>
+
+            <!-- <div class="timer">
+                Redirecting in <span id="count">15</span> seconds...
+            </div> -->
+
+        </div>
+
+        <div class="disclaimer">
+
+            This channel is for educational and informational purposes only.
+
+        </div>
+
+    </div>
+
+    <script>
+
+        // let time = 15;
+
+        // let counter = document.getElementById("count");
+
+        // setInterval(() => {
+
+        //     time--;
+
+        //     counter.innerText = time;
+
+        //     if (time <= 0) {
+
+        //         window.location.href = "https://t.me/+WfJH5ilSbMU0ODM1";
+
+        //     }
+
+        // }, 1000);
+
+    </script>
+
+</body>
+
+</html>
